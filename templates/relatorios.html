@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatórios de Chamados</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='relatorios.css') }}">
+</head>
+<body id="relatorios">
+
+  <!-- Menu Lateral (visível apenas para admin) -->
+  {% if current_user.email.lower().startswith('admin') %}
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Olá, {{ current_user.nome }}</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="{{ url_for('main.gestao_chamados') }}">Gestão de Chamados</a></li>
+        <li><a href="{{ url_for('main.relatorios') }}">Relatórios</a></li>
+        <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+      </ul>
+    </div>
+  {% endif %}
+
+  <!-- Conteúdo Principal -->
+  <div class="content">
+    <h1>Relatórios de Chamados</h1>
+    
+    <div class="relatorios-container">
+      <div class="relatorio">
+        <h3>Chamados Abertos</h3>
+        <p>{{ chamados_abertos }}</p>
+      </div>
+      
+      <div class="relatorio">
+        <h3>Chamados Atendidos</h3>
+        <p>{{ chamados_atendidos }}</p>
+      </div>
+      
+      <div class="relatorio">
+        <h3>Chamados do Mês</h3>
+        <p>{{ chamados_mes }}</p>
+      </div>
+    </div>
+    
+    <a href="{{ url_for('main.gestao_chamados') }}" class="back-btn">Voltar</a>
+  </div>
+
+</body>
+</html>

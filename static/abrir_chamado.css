@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+/* Reset de estilo global */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f5f7;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos Exclusivos para a Página de Abrir Chamado */
+body#abrir-chamado {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garantir que ocupe a altura total da tela */
+    margin: 0;
+    padding: 0;
+}
+
+body#abrir-chamado .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Para que a mensagem de sucesso possa ficar sobreposta */
+}
+
+body#abrir-chamado .form-container {
+    max-width: 600px;
+    width: 80%;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    box-sizing: border-box;
+    position: relative; /* Garante que o formulário fique no topo e a mensagem de sucesso fique sobre ele */
+}
+
+body#abrir-chamado h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body#abrir-chamado label {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+body#abrir-chamado input,
+body#abrir-chamado select,
+body#abrir-chamado textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+body#abrir-chamado textarea {
+    resize: vertical;
+}
+
+body#abrir-chamado button {
+    background-color: #FF4B2B;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+body#abrir-chamado button:hover {
+    background-color: #FF416C;
+}
+
+/* Estilo do Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+    padding: 10px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+
+/* Ajustando o layout dos campos */
+body#abrir-chamado form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body#abrir-chamado form input,
+body#abrir-chamado form select,
+body#abrir-chamado form textarea {
+    width: 90%; /* Ajustando para ter uma boa margem de largura */
+    margin-bottom: 20px;
+}
+
+/* Melhorando o visual do campo de texto e dos selects */
+body#abrir-chamado input,
+body#abrir-chamado select,
+body#abrir-chamado textarea {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    padding: 12px 15px;
+    box-sizing: border-box;
+}
+
+
+/* Estilo para a mensagem de sucesso após abrir um chamado */
+.success-message {
+    background-color: #FF9E00; /* Cor laranja */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: 20px; /* Centraliza a mensagem de sucesso logo abaixo do topo */
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Garante que a mensagem fique visível sobre os outros elementos */
+    opacity: 1;
+    animation: fadeOut 5s ease-in-out forwards; /* Animação para desaparecer */
+}
+
+/* Animação do emoji piscando */
+.success-message .emoji {
+    font-size: 24px;
+    animation: blink 1s infinite;
+}
+
+/* Animação para fazer a mensagem desaparecer */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}

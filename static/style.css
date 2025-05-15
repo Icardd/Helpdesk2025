@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+/* Reset de estilo global */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Para centralizar os itens no eixo Y */
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+span {
+    font-size: 12px;
+}
+
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
+form {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 50px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+input,
+select,
+textarea {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Cantos mais arredondados */
+    padding: 12px 15px;
+    margin: 12px 0;
+    width: 80%; /* Limitar a largura das caixas de input, select e textarea */
+    font-size: 14px;
+    text-align: center; /* Centralizar texto dentro dos campos */
+    box-sizing: border-box; /* Inclui padding no cálculo da largura */
+}
+
+/* Estilos para o "meio a meio" de Login e Cadastro */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+                0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 50%; /* Mantém a metade da tela para login/cadastro */
+    max-width: 100%;
+    height: 70%; /* Ajustei a altura para ocupar mais espaço */
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: #FF416C;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+/* Estilo para o formulário de abertura de chamado */
+body#abrir-chamado form#form-chamado {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Agora ocupa 80% da largura da tela */
+    min-height: 400px; /* Garantir uma altura mínima confortável */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    box-sizing: border-box; /* Garantir que o padding não ultrapasse o limite */
+}
+
+/* Ajustando a posição do conteúdo da página de abrir chamado para centralizar */
+body#abrir-chamado {
+    display: flex;
+    justify-content: center; /* Centralizar horizontalmente */
+    align-items: center; /* Centralizar verticalmente */
+    height: 100vh; /* Garantir que ocupe a altura total da tela */
+    margin: 0;
+    padding: 0 20px; /* Garantir que o conteúdo não encoste nas bordas */
+}
+
+/* Garantir que o formulário de "Abrir Chamado" seja bem centralizado e não estoure */
+body#abrir-chamado form#form-chamado {
+    max-width: 600px; /* Limitar largura máxima */
+    width: 100%; /* Garantir que ocupe 100% da largura do seu contêiner */
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Centralizar os itens horizontalmente */
+}
+
+/* Ajustes nos inputs, selects e textarea para manter a largura proporcional */
+body#abrir-chamado form#form-chamado input,
+body#abrir-chamado form#form-chamado select,
+body#abrir-chamado form#form-chamado textarea {
+    width: 80%; /* Definir largura de 80% para campos de entrada */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Ajuste para o botão dentro do formulário de "Abrir Chamado" */
+body#abrir-chamado form#form-chamado button {
+    background-color: #FF4B2B;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    width: 80%; /* Botão ocupa 80% da largura do formulário */
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+body#abrir-chamado form#form-chamado button:hover {
+    background-color: #FF416C;
+}
+
+/* Estilos do Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+    padding: 10px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none; 
+}

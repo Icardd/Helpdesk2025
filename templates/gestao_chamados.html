@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestão de Chamados</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='gestao_chamados.css') }}">
+</head>
+<body id="gestao-chamados">
+
+  <!-- Menu Lateral (visível apenas para admin) -->
+  {% if current_user.email.lower().startswith('admin') %}
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Olá, {{ current_user.nome }}</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="{{ url_for('main.gestao_chamados') }}">Gestão de Chamados</a></li>
+        <li><a href="{{ url_for('main.relatorios') }}">Relatórios</a></li>
+        <li><a href="{{ url_for('main.logout') }}">Logout</a></li>
+      </ul>
+    </div>
+  {% endif %}
+
+  <!-- Conteúdo Principal -->
+  <div class="content">
+    <h1>Gestão de Chamados</h1>
+
+<!-- Filtros -->
+<div class="filters">
+  <form method="GET" action="{{ url_for('main.gestao_chamados') }}">
+    <label for="status">Status:</label>
+    <select name="status" id="status">
+      <option value="">Todos</option>
+      <option value="Aberto" {% if status_filter == 'Aberto' %}selected{% endif %}>Aberto</option>
+      <option value="Fechado" {% if status_filter == 'Fechado' %}selected{% endif %}>Fechado</option>
+    </select>
+
+    <label for="prioridade">Prioridade:</label>
+    <select name="prioridade" id="prioridade">
+      <option value="">Todas</option>
+      <option value="Alta" {% if prioridade_filter == 'Alta' %}selected{% endif %}>Alta</option>
+      <option value="Média" {% if prioridade_filter == 'Média' %}selected{% endif %}>Média</option>
+      <option value="Baixa" {% if prioridade_filter == 'Baixa' %}selected{% endif %}>Baixa</option>
+    </select>
+
+    <!-- Novo: filtro por datas -->
+    <label for="data_inicio">De (Data Abertura):</label>
+    <input type="date" name="data_inicio" id="data_inicio" value="{{ data_inicio }}">
+
+    <label for="data_fim">Até (Data Abertura):</label>
+    <input type="date" name="data_fim" id="data_fim" value="{{ data_fim }}">
+
+    <button type="submit">Aplicar Filtros</button>
+  </form>
+</div>
+
+    <!-- Cards -->
+    <div class="cards-container">
+      {% for chamado in chamados %}
+        <div class="card">
+          <h3>{{ chamado.titulo }} (ID: {{ chamado.id }})</h3>
+          <p><strong>Data de Abertura:</strong> {{ chamado.data_abertura.strftime('%d/%m/%Y %H:%M') }}</p>
+          <p><strong>Descrição:</strong> {{ chamado.descricao }}</p>
+          <p><strong>Prioridade:</strong> {{ chamado.prioridade }}</p>
+          <p><strong>Status:</strong> 
+            {% if chamado.status == 'Fechado' %}
+              <span class="badge-fechado">Fechado</span>
+              <p><strong>Data de Fechamento:</strong> 
+                {% if chamado.data_fechamento %}
+                  {{ chamado.data_fechamento.strftime('%d/%m/%Y %H:%M') }}
+                {% else %}
+                  Data não disponível
+                {% endif %}
+              </p>
+            {% else %}
+              {{ chamado.status }}
+            {% endif %}
+          </p>
+          <p><strong>Setor:</strong> {{ chamado.setor.nome }}</p>
+          <p><strong>Usuário:</strong> {{ chamado.usuario.email }}</p>
+
+          {% if chamado.status != 'Fechado' %}
+            <form action="{{ url_for('main.fechar_chamado', chamado_id=chamado.id) }}" method="POST">
+              <button type="submit">Fechar Chamado</button>
+            </form>
+            <form action="{{ url_for('main.excluir_chamado', chamado_id=chamado.id) }}" method="POST">
+              <button type="submit">Excluir Chamado</button>
+            </form>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <a href="{{ url_for('main.logout') }}" class="logout-btn">Sair</a>
+  </div>
+
+</body>
+</html>

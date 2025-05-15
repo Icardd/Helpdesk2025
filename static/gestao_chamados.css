@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+/* Reset global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f6f5f7;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-header h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 50px 0 40px 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sidebar-menu li a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Conteúdo */
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  width: calc(100% - 270px);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Filtros */
+.filters {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filters form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filters select, 
+.filters button {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Centraliza os cards */
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: calc(33% - 20px); /* Volta ao layout de antes */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 20px;
+  color: #FF4B2B;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.card button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 8px;
+  background-color: #FF4B2B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #FF416C;
+}
+
+/* Badge */
+.badge-fechado {
+  display: inline-block;
+  padding: 5px 12px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão logout */
+.logout-btn {
+  display: block;
+  width: 120px;
+  background-color: #FF4B2B;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  margin: 30px auto 0 auto;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #FF416C;
+}
+
+/* Botões Fechar e Excluir */
+form button {
+  margin-right: 10px;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+/* Botões Editar e Deletar */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  width: 48%;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.edit-btn {
+  background-color: #FF4B2B;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #FF416C;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

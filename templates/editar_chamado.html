@@ -1,0 +1,8 @@
+<div class="content">
+    <h1>Editar Chamado #{{ chamado.id }}</h1>
+    <form action="{{ url_for('atualizar_chamado', id=chamado.id) }}" method="POST">
+        <label for="descricao">Descrição</label>
+        <textarea name="descricao" id="descricao" rows="4">{{ chamado.descricao }}</textarea>
+        <button type="submit">Atualizar Chamado</button>
+    </form>
+</div>
