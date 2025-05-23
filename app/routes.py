@@ -28,7 +28,7 @@ def login():
             if proxima:
                 return redirect(proxima)
             else:
-                # 🔥 Admins vão para gestão, usuários normais para abertura
+                # Contas contendo ADMIN no email vão para a gestão, usuários normais somente para a tela de abertura
                 if usuario.email.lower().startswith('admin'):
                     return redirect(url_for('main.gestao_chamados'))
                 else:
@@ -46,7 +46,7 @@ def criar_usuario():
     email = request.form['email']
     senha = request.form['senha']
 
-    # Verifica duplicidade
+    # Verifica se o usuário já existe
     usuario_existente = Usuario.query.filter_by(email=email).first()
     if usuario_existente:
         flash('E-mail já cadastrado. Faça login ou use outro e-mail.')
@@ -116,7 +116,7 @@ def gestao_chamados():
     data_inicio = request.args.get('data_inicio', '')
     data_fim = request.args.get('data_fim', '')
 
-    # Consultar chamados com base nos filtros
+    # Filtro de chamados
     chamados_query = Chamado.query
 
     if status_filter:

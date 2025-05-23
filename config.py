@@ -2,7 +2,7 @@ import os
 
 class Config:
     # Configuração do banco de dados
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost/helpdesk'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:toor@localhost/helpdesk'
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # Desativando o monitoramento de modificações do SQLAlchemy
     
     # Chave secreta para proteger a sessão do Flask

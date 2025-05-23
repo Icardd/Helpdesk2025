@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-/* Reset global */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -106,7 +105,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Centraliza os cards */
+  justify-content: center;
 }
 
 .card {
@@ -114,7 +113,7 @@ h1 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  width: calc(33% - 20px); /* Volta ao layout de antes */
+  width: calc(33% - 20px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

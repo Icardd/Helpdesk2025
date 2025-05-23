@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-/* Reset de estilo global */
 * {
     box-sizing: border-box;
 }
@@ -12,12 +11,12 @@ body {
     padding: 0;
 }
 
-/* Estilos Exclusivos para a Página de Abrir Chamado */
+/* Estilo para a Página de Abrir Chamado */
 body#abrir-chamado {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Garantir que ocupe a altura total da tela */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
     margin: 0;
     padding: 0;
 }
@@ -28,7 +27,7 @@ body#abrir-chamado .container {
     align-items: center;
     width: 100%;
     height: 100%;
-    position: relative; /* Para que a mensagem de sucesso possa ficar sobreposta */
+    position: relative; 
 }
 
 body#abrir-chamado .form-container {
@@ -43,7 +42,7 @@ body#abrir-chamado .form-container {
     gap: 20px;
     text-align: left;
     box-sizing: border-box;
-    position: relative; /* Garante que o formulário fique no topo e a mensagem de sucesso fique sobre ele */
+    position: relative;
 }
 
 body#abrir-chamado h1 {
@@ -126,7 +125,7 @@ body#abrir-chamado form {
 body#abrir-chamado form input,
 body#abrir-chamado form select,
 body#abrir-chamado form textarea {
-    width: 90%; /* Ajustando para ter uma boa margem de largura */
+    width: 90%;
     margin-bottom: 20px;
 }
 
@@ -144,23 +143,23 @@ body#abrir-chamado textarea {
 
 /* Estilo para a mensagem de sucesso após abrir um chamado */
 .success-message {
-    background-color: #FF9E00; /* Cor laranja */
+    background-color: #FF9E00; 
     color: white;
     padding: 15px;
     border-radius: 8px;
     text-align: center;
     font-size: 16px;
     position: absolute;
-    top: 20px; /* Centraliza a mensagem de sucesso logo abaixo do topo */
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: block;
     width: 80%;
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Garante que a mensagem fique visível sobre os outros elementos */
+    z-index: 10; 
     opacity: 1;
-    animation: fadeOut 5s ease-in-out forwards; /* Animação para desaparecer */
+    animation: fadeOut 5s ease-in-out forwards; 
 }
 
 /* Animação do emoji piscando */
@@ -169,7 +168,7 @@ body#abrir-chamado textarea {
     animation: blink 1s infinite;
 }
 
-/* Animação para fazer a mensagem desaparecer */
+/* Fade out da mensagem */
 @keyframes fadeOut {
     0% {
         opacity: 1;

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-/* Reset de estilo global */
 * {
     box-sizing: border-box;
 }
@@ -13,7 +12,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
     margin: 0;
-    flex-direction: column; /* Para centralizar os itens no eixo Y */
+    flex-direction: column;
 }
 
 h1 {
@@ -24,10 +23,10 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* Menu lateral (para admin) */
+/* Menu (admin) */
 .sidebar {
   width: 250px;
-  background: linear-gradient(to right, #FF4B2B, #FF416C); /* gradiente laranja */
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
   color: #fff;
   position: fixed;
   top: 0;
@@ -42,13 +41,13 @@ h1 {
   text-align: center;
   font-size: 1.4rem;
   margin-bottom: 40px;
-  margin-top: 50px; /* Adiciona espaço do topo para o título */
+  margin-top: 50px;
 }
 
 .sidebar-menu {
   list-style-type: none;
   padding: 0;
-  margin-top: 20px; /* Adiciona um pequeno espaço entre o título e o menu */
+  margin-top: 20px;
 }
 
 .sidebar-menu li {
@@ -70,7 +69,7 @@ h1 {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Conteúdo principal */
+/* Pagina principal */
 .content {
     margin-left: 270px;
     padding: 20px;
@@ -112,7 +111,7 @@ h1 {
     color: #FF416C;
 }
 
-/* Estilo do botão de Voltar */
+/* Botão de voltar */
 .back-btn {
     display: inline-block;
     margin-top: 40px;
@@ -130,7 +129,7 @@ h1 {
     background-color: #FF4B2B;
 }
 
-/* Responsividade */
+/* Responsivo */
 @media screen and (max-width: 768px) {
     .relatorios-container {
         flex-direction: column;

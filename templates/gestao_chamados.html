@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Gestão de Chamados</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='gestao_chamados.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/ferramenta.png') }}">
+
+
 </head>
 <body id="gestao-chamados">
 
@@ -43,7 +46,7 @@
       <option value="Baixa" {% if prioridade_filter == 'Baixa' %}selected{% endif %}>Baixa</option>
     </select>
 
-    <!-- Novo: filtro por datas -->
+    <!-- filtro por datas -->
     <label for="data_inicio">De (Data Abertura):</label>
     <input type="date" name="data_inicio" id="data_inicio" value="{{ data_inicio }}">
 

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Abrir Chamado</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='abrir_chamado.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/ferramenta.png') }}">
+
 </head>
 <body id="abrir-chamado">
 
@@ -66,16 +68,16 @@
 
 </body>
 </html><script>
-  // Espera o carregamento da página
+
   window.onload = function() {
-    // Encontra a mensagem de sucesso
+
     var successMessage = document.querySelector('.success-message');
     
-    // Verifica se a mensagem existe e define o tempo de desaparecimento
+
     if (successMessage) {
       setTimeout(function() {
-        successMessage.style.display = 'none'; // Esconde a mensagem após o tempo
-      }, 5000); // A mensagem desaparecerá após 5 segundos
+        successMessage.style.display = 'none'
+      }, 5000);
     }
   }
 </script>

@@ -26,7 +26,7 @@ def create_app():
         template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates'),
         static_folder=os.path.join(os.path.dirname(__file__), '..', 'static')
     )
-
+    
     # Carregando as configurações do app
     from config import Config
     app.config.from_object(Config)
